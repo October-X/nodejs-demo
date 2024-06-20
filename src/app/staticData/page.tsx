@@ -1,21 +1,17 @@
+'use client'
+
+import '@/app/ui/home.css'
+import { usePathname } from 'next/navigation';
+
 export default function GetStaticProps(props: { data: any; }) {
-    const {data}  = props
+    const pathName = usePathname();
+    const CurrentPage = pathName?.replace('/','')
     return (
         <div>
             <header>getStaticProps</header>
-            <main>{data}</main>
+            <p>{CurrentPage}</p>
+            <div className={"box"}>样式引入示例</div>
         </div>
     );
 }
 
-// @ts-ignore
-export async function getStaticProps(){
-    const data = 'Hello World';
-    console.log('call getStaticProps');
-
-    return {
-        props: {
-            data
-        }
-    };
-};
