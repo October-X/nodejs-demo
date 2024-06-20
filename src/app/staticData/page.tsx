@@ -3,7 +3,7 @@
 import '@/app/ui/home.css'
 import { usePathname } from 'next/navigation';
 
-export default function GetStaticProps(props: { data: any; }) {
+export default function GetStaticProps() {
     const pathName = usePathname();
     const CurrentPage = pathName?.replace('/','')
     return (
